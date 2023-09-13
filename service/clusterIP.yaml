@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: mangesh-app
+ labels:
+   app: node-app
+spec:
+ selector:
+   run: node-app
+ type: ClusterIP
+ ports:
+    port: 3000
+   targetPort: 3000

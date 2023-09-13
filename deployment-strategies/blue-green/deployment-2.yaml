@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "updated the version"
+  labels:
+    run: school-app-v2
+  name: school-app-v2
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      run: school-app-v2
+  template:
+    metadata:
+      labels:
+        run: school-app-v2
+    spec:
+      containers:
+      - image: mangeshabnave/cgi-app-v2
+        name: school-app

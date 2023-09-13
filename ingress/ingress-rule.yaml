@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-ingress
+spec:
+   ingressClassName: nginx
+   rules:
+    - host: mangesh.india.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: school-app-svc-v1
+                port:
+                  number: 80
+    - host: mangesh.canada.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: school-app-svc-v2
+                port:
+                  number: 80
